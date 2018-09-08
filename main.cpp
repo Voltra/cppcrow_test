@@ -1,6 +1,7 @@
 #include <crow/crow_all.h>
-#include <string>
 #include <boost/filesystem.hpp>
+#include <fmt/format.h>
+#include <string>
 #include <fstream>
 #include <sstream>
 #include <cstdlib>
@@ -68,7 +69,8 @@ int main(){
 	});
 	
 	GET(app, "/<int>", [](int param){
-		return "Yolo: " + std::to_string(param);
+		//return "Yolo: " + std::to_string(param);
+		return fmt::format("Yolo: {}", param);
 	});
 	
 	GET(app, "/json", []{
